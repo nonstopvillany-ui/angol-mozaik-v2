@@ -1,28 +1,19 @@
-# Angol Mozaik AI V2
+# Angol Mozaik AI V2 – 14 leckés változat
 
-Új, különálló webalkalmazás a korábbi Angol Mozaik helyett. A régi alkalmazást nem módosítja.
+## Tananyag
+A New Headway Elementary Student’s Book (Third Edition) 14 egységének témaköreit követő **saját készítésű** szókincs, magyar nyelvtani magyarázat és minden leckéhez 4 eredeti mondat, 4 interaktív feladattípusban, valamint nyomtatható gyakorlólap. A „Tankönyv / Workbook” menüben minden egységhez áttekintés és munkafüzetszerű saját gyakorlás található. A teljes Oxford PDF-eket a csomag **nem tartalmazza**; nyilvános közzétételükhöz kiadói engedély szükséges.
 
-## Funkciók
-- Szókincs, nyelvtan, mozaik, hiányzó szó, feleletválasztós, fordítás, brit angol felolvasás
-- Óraszámláló, óraszorszám, korábbi órák és nyomtatható gyakorlólap (helyi böngészőmentés)
-- **Valódi videóhívás** a Jitsi Meet szolgáltatáson keresztül: videóhívás gomb, véletlen szoba, link másolása. A Jitsi különálló külső szolgáltatás; internet, kamera/mikrofon-engedély és a szolgáltató elérhetősége szükséges. A publikus meet.jit.si használatát a szolgáltató korlátozhatja vagy bejelentkezéshez kötheti.
-- AI mondatgenerálás és magyar nyelvtani magyarázat OpenAI API-n keresztül (kulcs csak szerveren)
+## Diák és tanár
+A diák a „Tanár meghívása” gombbal videóhívást indít és a tanári linket a vágólapra másolja. A tanár a linkkel az alkalmazás tanári nézetét nyitja meg, amelyben a Jitsi videóhívás és az élő feladateredmények láthatók. A diák „Képernyő megosztása” gombja a Jitsi képernyőmegosztását kezdeményezi; a Chrome megosztási ablakában az Angol Mozaik lapot kell kiválasztani. A Jitsi szolgáltatója bejelentkezést kérhet, és korlátozhatja a beágyazást.
 
-## GitHub és Render telepítés
-1. Hozd létre / nyisd meg a **nonstopvillany-ui/angol-mozaik-v2** repót.
-2. A ZIP tartalmát (a fájlokat és a `public` mappát) töltsd fel a repó gyökerébe. **Ne** a ZIP fájlt töltsd fel egyben.
-3. Render → New → Web Service → GitHub repo: `angol-mozaik-v2`.
-4. Runtime: Node; Build command: `npm install`; Start command: `npm start`.
-5. Environment → add `OPENAI_API_KEY` = saját titkos API-kulcs, és opcionálisan `OPENAI_MODEL` = `gpt-4o-mini`. A kulcsot soha ne töltsd fel GitHubra.
-6. Deploy. A videóhívás a Jitsi külső szolgáltatásán fut; az AI az OpenAI API-val külön díjas.
+A feladatállapotot a Node szerver memóriában tárolja (4 órás lejárat, legfeljebb 100 esemény/szoba); Render újraindításakor törlődik. Ez demó, nem hitelesített tanári rendszer: aki ismeri a meghívólinket, láthatja a feladateredményeket. Személyes adatot ne küldjön a diák a feladatmezőkbe. Az óratörténet továbbra is a böngészőben tárolódik.
 
-## Helyi teszt
-`npm start`, majd `http://localhost:3000`.
+## Telepítés
+GitHub repó gyökerébe töltsd fel a ZIP **tartalmát** (README.md, package.json, server.js, public/), Render automatikusan újratelepíti. Node indítás: `npm start`. A korábbi szerveroldali OpenAI-funkcióhoz az `OPENAI_API_KEY` Render környezeti változó szükséges.
 
-## Korlátok és további feladatok
-- A demó tananyag **3 saját példaleckét** tartalmaz; a teljes tankönyv nincs integrálva.
-- A **Kreatív angol kezdő könyv PDF-jét szándékosan nem tartalmazza** a nyilvános GitHub-csomag, mert a közzétételhez engedély szükséges.
-- Az óratörténet böngészőnként külön, `localStorage`-ban tárolódik, nem többfelhasználós felhőadatbázisban.
-- A Jitsi hívás működhet, de a tanár **nem látja automatikusan a diák feladatmegoldásait**; ehhez külön valós idejű backend szükséges.
-- Nyilvános AI szolgáltatáshoz bejelentkezés, jogosultságok és felhasználónkénti költségkorlát szükséges. A beépített egyszerű IP-alapú limit nem helyettesíti ezeket.
-- Éles oktatási szolgáltatáshoz adatvédelmi tájékoztató és a videó/AI szolgáltatók adatkezelésének ellenőrzése szükséges.
+## Ellenőrzés
+1. Nyisd meg az oldalt, válassz a 14 leckéből.
+2. Diák: Tanár meghívása → tanári link másolása.
+3. Tanár: link megnyitása egy másik böngészőben vagy eszközön.
+4. Diák: Képernyő megosztása → Chrome-lap → Angol Mozaik → Megosztás.
+5. Diák: oldj meg feladatot; a tanári élő feladatkövetés 2 másodpercenként frissül.
