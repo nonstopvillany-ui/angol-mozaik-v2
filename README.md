@@ -17,7 +17,3 @@ GitHub repó gyökerébe töltsd fel a ZIP **tartalmát** (README.md, package.js
 3. Tanár: link megnyitása egy másik böngészőben vagy eszközön.
 4. Diák: Képernyő megosztása → Chrome-lap → Angol Mozaik → Megosztás.
 5. Diák: oldj meg feladatot; a tanári élő feladatkövetés 2 másodpercenként frissül.
-
-
-## Interaktív munkafüzet
-A `public/workbook.html` a felhasználó által feltöltött 14 leckés interaktív munkafüzetből integrált oldal. A főmenü `Interaktív munkafüzet` pontjából érhető el, és a főoldalon kiválasztott leckére vált. A munkafüzet eredeti PDF-mellékletei nem kerültek a nyilvános csomagba. Az eredmények böngészőnként, localStorage-ban tárolódnak.
